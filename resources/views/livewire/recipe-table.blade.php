@@ -17,27 +17,33 @@
                 <th scope="col">Delete</th>
             </tr>
         </thead>
-        @foreach ($recipes as $index => $recipe)
-            <tr>
-                <td>{{$recipe->id}}</td>
-                <td>{{$recipe->name}}</td>
-                <td>{{$recipe->description}}</td>
-                <td>{{$recipe->category}}</td>
-                <td>{{$recipe->yield}}</td>
-                <td>{{$recipe->selling_price}}</td>
-                <td>{{$recipe->cost_price}}</td>
-                <td>{{$recipe->gross_margin}}</td>
-                <td>
-                    <a href="{{route('recipe.edit', ['recipe' => $recipe])}}" class="btn btn-outline-primary">Edit</a>
-                </td>
-                <td>
-                    <form method="post" action="{{ route('recipe.hapus', ['recipe' => $recipe]) }}">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" value="Delete" class="btn btn-danger" />
-                    </form>
-                </td>
-            </tr>
-        @endforeach
+        <tbody>
+            @foreach ($recipes as $recipe)
+                <tr>
+                    <td>{{ $recipe->id }}</td>
+                    <td>{{ $recipe->name }}</td>
+                    <td>{{ $recipe->description }}</td>
+                    <td>{{ $recipe->category }}</td>
+                    <td>{{ $recipe->yield }}</td>
+                    <td>{{ $recipe->selling_price }}</td>
+                    <td>{{ $recipe->cost_price }}</td>
+                    <td>{{ $recipe->gross_margin }}</td>
+                    <td>
+                        <a href="{{ route('recipe.edit', ['recipe' => $recipe]) }}" class="btn btn-outline-primary">Edit</a>
+                    </td>
+                    <td>
+                        <form method="post" action="{{ route('recipe.hapus', ['recipe' => $recipe]) }}">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
     </table>
+
+    <div class="d-flex justify-content-center">
+        {{ $recipes->links() }} <!-- Pagination links -->
+    </div>
 </div>
