@@ -37,6 +37,10 @@
             <input type="text" name="description" placeholder="description" value="{{$recipe->description}}" />
         </div>
         <div>
+            <label for="category">Category</label>
+            <input type="text" name="category" placeholder="category" value="{{$recipe->category}}" />
+        </div>
+        <div>
             <label for="yield">Yield</label>
             <input type="text" name="yield" placeholder="yield" value="{{$recipe->yield}}" />
         </div>

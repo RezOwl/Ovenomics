@@ -37,6 +37,10 @@
             <input type="text" name="description" placeholder="description">
         </div>
         <div>
+            <label for="category">Category</label>
+            <input type="text" name="category" placeholder="category">
+        </div>
+        <div>
             <label for="yield">Yield</label>
             <input type="text" name="yield" placeholder="yield">
         </div>

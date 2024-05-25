@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->text('category');
             $table->string('yield');
             $table->decimal('selling_price');
             $table->decimal('cost_price');

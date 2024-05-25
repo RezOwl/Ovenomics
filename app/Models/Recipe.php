@@ -12,6 +12,7 @@ class Recipe extends Model
     protected $fillable = [
         'name',
         'description',
+        'category',
         'yield',
         'selling_price',
         'cost_price',
