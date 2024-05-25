@@ -27,7 +27,7 @@
         </nav>
     </section>
 
-    <section id="Title">
+    <section id="Title" class="container -ml-3 -mr-3">
         <h1>Recipes</h1>
         <div>
             @if(session()->has('success'))
@@ -37,10 +37,10 @@
             @endif
         </div>
         <div>
-            <div>
-                <a href="{{ route ('recipe.create') }}"> Tambahkan Resep</a>
-            </div>
             @livewire('recipe-table')
+            <div>
+                <a href="{{ route ('recipe.create') }}" class="btn btn-primary"> Tambahkan Resep</a>
+            </div>
         </div>
     </section>
 </body>
