@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Recipe;
+
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -15,7 +16,13 @@ class RecipeTable extends Component
     
     public function render()
     {
-        return view('livewire.recipe-table',['recipes' => Recipe::where('description','like','%'.$this->searchTerm.'%')->paginate(10)]);
+        $query = Recipe::query();
+        if ($this->searchTerm) {
+            $query->where('name', 'like', '%' . $this->searchTerm . '%') ->orWhere('description', 'like', '%' . $this->searchTerm . '%');
+        }
+
+        return view('livewire.recipe-table',['recipes' => $query->get()]);
+
     }
 
 }

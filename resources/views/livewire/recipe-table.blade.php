@@ -1,11 +1,10 @@
 <div>
     <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Cari Resep" wire:model="searchTerm" />
+        <input type="text" class="form-control" placeholder="Cari Resep" wire:model.live="searchTerm"  />
     </div>
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">No</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
@@ -20,7 +19,6 @@
         </thead>
         @foreach ($recipes as $index => $recipe)
             <tr>
-                <th scope="row">{{$recipes->firstItem() + $index}}</th>
                 <td>{{$recipe->id}}</td>
                 <td>{{$recipe->name}}</td>
                 <td>{{$recipe->description}}</td>
@@ -42,5 +40,4 @@
             </tr>
         @endforeach
     </table>
-    {{$recipes->links()}}
 </div>
