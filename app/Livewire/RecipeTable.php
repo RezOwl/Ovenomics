@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Recipe;
-
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,6 +12,14 @@ class RecipeTable extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+
+    protected $updatesQueryString = ['searchTerm'];
+
+    public function updatedSearchTerm()
+    {
+        // Reset pagination to the first page whenever the search term changes
+        $this->resetPage();
+    }
 
     public function render()
     {
