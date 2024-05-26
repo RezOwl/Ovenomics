@@ -39,7 +39,7 @@
         <div>
             @livewire('ingredient-table')
             <div>
-                <a href="{{ route ('recipe.create') }}" class="btn btn-primary"> Tambahkan Resep</a>
+                <a href="{{ route ('ingredient.create') }}" class="btn btn-primary"> Tambahkan Ingredient</a>
             </div>
         </div>
     </section>

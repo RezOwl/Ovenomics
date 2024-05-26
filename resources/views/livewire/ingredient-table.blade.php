@@ -1,6 +1,6 @@
 <div>
     <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Cari Resep" wire:model.live="searchTerm" />
+        <input type="text" class="form-control" placeholder="Cari Ingredient" wire:model.live="searchTerm" />
     </div>
 
     <div class="mb-3">
