@@ -9,6 +9,9 @@ use Livewire\WithPagination;
 class RecipeTable extends Component
 {
     public $searchTerm = '';
+    public $sortDirection = 'asc'; // Default sort direction
+    public $sortField = 'id'; // Default sort field
+    public $selectedCategory = 'all'; // Default category filter
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -21,17 +24,37 @@ class RecipeTable extends Component
         $this->resetPage();
     }
 
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    public function filterByCategory($category)
+    {
+        $this->selectedCategory = $category;
+        $this->resetPage(); // Reset pagination when category changes
+    }
+
     public function render()
     {
         $query = Recipe::query();
+        
         if ($this->searchTerm) {
             $query->where('name', 'like', '%' . $this->searchTerm . '%')
                 ->orWhere('description', 'like', '%' . $this->searchTerm . '%');
         }
 
-        $recipes = $query->paginate(2); // Paginate results, 10 per page
+        if ($this->selectedCategory !== 'all') {
+            $query->where('category', $this->selectedCategory);
+        }
+
+        $recipes = $query->orderBy($this->sortField, $this->sortDirection)->paginate(2);
 
         return view('livewire.recipe-table', ['recipes' => $recipes]);
     }
-
 }

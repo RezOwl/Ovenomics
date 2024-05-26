@@ -1,11 +1,27 @@
 <div>
     <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Cari Resep" wire:model.live="searchTerm"  />
+        <input type="text" class="form-control" placeholder="Cari Resep" wire:model.live="searchTerm" />
     </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary" wire:click="filterByCategory('all')">All</button>
+        <button class="btn btn-primary" wire:click="filterByCategory('sweet')">Sweet</button>
+        <button class="btn btn-primary" wire:click="filterByCategory('savory')">Savory</button>
+    </div>
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col" wire:click="sortBy('id')" style="cursor:pointer;">
+                    ID
+                    @if($sortField === 'id')
+                        @if($sortDirection === 'asc')
+                            &uarr;
+                        @else
+                            &darr;
+                        @endif
+                    @endif
+                </th>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Category</th>
