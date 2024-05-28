@@ -53,7 +53,7 @@ class RecipeTable extends Component
             $query->where('category', $this->selectedCategory);
         }
 
-        $recipes = $query->orderBy($this->sortField, $this->sortDirection)->paginate(4);
+        $recipes = $query->orderBy($this->sortField, $this->sortDirection)->paginate(5);
 
         return view('livewire.recipe-table', ['recipes' => $recipes]);
     }
