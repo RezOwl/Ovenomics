@@ -5,8 +5,8 @@
 
     <div class="mb-3">
         <button class="btn btn-primary" wire:click="filterByCategory('all')">All</button>
-        <button class="btn btn-primary" wire:click="filterByCategory('sweet')">Sweet</button>
-        <button class="btn btn-primary" wire:click="filterByCategory('savory')">Savory</button>
+        <button class="btn btn-primary" wire:click="filterByCategory('vegetable')">Vegetable</button>
+        <button class="btn btn-primary" wire:click="filterByCategory('fruit')">Fruit</button>
     </div>
 
     <table class="table">

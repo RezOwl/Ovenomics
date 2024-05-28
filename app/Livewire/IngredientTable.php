@@ -54,7 +54,7 @@ class IngredientTable extends Component
             $query->where('category', $this->selectedCategory);
         }
 
-        $ingredients = $query->orderBy($this->sortField, $this->sortDirection)->paginate(2);
+        $ingredients = $query->orderBy($this->sortField, $this->sortDirection)->paginate(5);
 
         return view('livewire.ingredient-table', ['ingredients' => $ingredients]);
     }
