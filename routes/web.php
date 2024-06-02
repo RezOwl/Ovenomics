@@ -8,6 +8,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/dashboard', function () {
+    return view('dash');
+})->name('dashboard');
+
+Route::get('/profitability', function () {
+    return view('profitability/profitability');
+})->name('profitability');
+
 Route::get('/recipe', [RecipeController::class, 'index'])->name('recipe.index');
 Route::get('/recipe/create', [RecipeController::class, 'create'])->name('recipe.create');
 Route::post('/recipe', [RecipeController::class, 'store'])->name('recipe.store');
