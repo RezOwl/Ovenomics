@@ -26,9 +26,19 @@
         </nav>
     </section>
 
-    <section id="count">
+    <section id="count" class="container -ml-3 -mr-3">
         <h2>Profitability</h2>
-        
+    </section>
+
+    <section class="container -ml-3 -mr-3">
+        <div>
+            <label for="recipe">Recipe</label>
+            <input type="text" name="recipe" placeholder="Recipe" class="form-control">
+        </div>
+        <div>
+            <label for="ammount">Ammount</label>
+            <input type="text" name="ammount" placeholder="Ammount Selled" class="form-control">
+        </div>
     </section>
 </body>
 </html>
