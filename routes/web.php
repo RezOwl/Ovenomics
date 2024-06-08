@@ -14,10 +14,6 @@ Route::get('/dashboard', function () {
     return view('dash');
 })->name('dashboard');
 
-Route::get('/report', function () {
-    return view('profitability/report');
-})->name('report');
-
 Route::post('/report', [ReportController::class, 'showReport'])->name('report');
 
 Route::get('/profitability', [ProfitabilityController::class, 'index'])->name('profitability.index');

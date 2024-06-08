@@ -70,6 +70,6 @@
         <button id="addButton" class="btn btn-primary">Add</button>
     </section>
     <section class="container -ml-3 -mr-3">
-        <button id="doneButton" class="btn btn-success" style="float: right; margin-top: 10px;">Done</button>
+        <div id="doneButton" data-action-url="{{ route('report') }}" class="btn btn-success" style="float: right; margin-top: 10px;">Done</div>
     </section>
 </body>

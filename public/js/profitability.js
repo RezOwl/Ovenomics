@@ -57,11 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
             tableData.push({ recipe, quantity, totalCost });
         }
 
+        const button = document.getElementById('doneButton');
+        const formActionUrl = button.getAttribute('data-action-url');
+
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = '{{ route("report") }}';
+        form.action = formActionUrl;
 
-        const csrfToken = '{{ csrf_token() }}';
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const csrfInput = document.createElement('input');
         csrfInput.type = 'hidden';
         csrfInput.name = '_token';
