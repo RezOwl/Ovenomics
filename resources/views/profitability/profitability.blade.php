@@ -54,15 +54,15 @@
     </section>
 
     <section class="container -ml-3 -mr-3">
-        <div class="mb-3">
-            <label for="recipe">Recipe:</label>
-            <select id="recipe" class="form-control">
-                <option value="">Select Recipe</option>
-                @foreach($recipes as $recipe)
-                    <option value="{{ $recipe->id }}" data-cost="{{ $recipe->cost_price }}">{{ $recipe->name }}</option>
-                @endforeach
-            </select>
-        </div>
+        <div class="mb-3" style="position: relative;">
+    <label for="recipe">Recipe:</label>
+    <select id="recipe" class="form-control">
+        <option value="">Select Recipe</option>
+        @foreach($recipes as $recipe)
+            <option value="{{ $recipe->id }}" data-cost="{{ $recipe->cost_price }}">{{ $recipe->name }}</option>
+        @endforeach
+    </select>
+</div>
         <div class="mb-3">
             <label for="quantity">Quantity Sold:</label>
             <input type="number" id="quantity" class="form-control">
