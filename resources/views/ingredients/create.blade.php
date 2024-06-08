@@ -70,7 +70,7 @@
                 <input type="text" name="cost" placeholder="cost" class="form-control">
             </div>
             <div>
-                <button onclick="window.location='{{ route('ingredient.index') }}'" class="btn btn-outline-primary">Back</button>
+                {{-- <button onclick="window.location='{{ route('ingredient.index') }}'" class="btn btn-outline-primary">Back</button> --}}
                 <input type="submit" value="Save a new ingredient" class="btn btn-primary" />
             </div>
         </form>

@@ -13,7 +13,7 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col" wire:click="sortBy('id')" style="cursor:pointer;">
-                    ID
+                    No
                     @if($sortField === 'id')
                         @if($sortDirection === 'asc')
                             &uarr;

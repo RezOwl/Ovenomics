@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\ProfitabilityController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,9 +14,13 @@ Route::get('/dashboard', function () {
     return view('dash');
 })->name('dashboard');
 
-Route::get('/profitability', function () {
-    return view('profitability/profitability');
-})->name('profitability');
+Route::get('/report', function () {
+    return view('profitability/report');
+})->name('report');
+
+Route::post('/report', [ReportController::class, 'showReport'])->name('report');
+
+Route::get('/profitability', [ProfitabilityController::class, 'index'])->name('profitability.index');
 
 Route::get('/recipe', [RecipeController::class, 'index'])->name('recipe.index');
 Route::get('/recipe/create', [RecipeController::class, 'create'])->name('recipe.create');

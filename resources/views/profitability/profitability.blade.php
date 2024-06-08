@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +9,8 @@
     {{-- css link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="css/Styles.css">
+    <script src="js/profitability.js" defer></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +22,9 @@
         <nav class="navbar">
             <h4>Ovenomics</h4>
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="">About</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="">User</a></li>
             </ul>
         </nav>
@@ -31,14 +35,41 @@
     </section>
 
     <section class="container -ml-3 -mr-3">
-        <div>
-            <label for="recipe">Recipe</label>
-            <input type="text" name="recipe" placeholder="Recipe" class="form-control">
-        </div>
-        <div>
-            <label for="ammount">Ammount</label>
-            <input type="text" name="ammount" placeholder="Ammount Selled" class="form-control">
+        <div class="table-responsive">
+            <table id="profitabilityTable" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Recipe</th>
+                        <th>Quantity Sold</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="3">No data available</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
+
+    <section class="container -ml-3 -mr-3">
+        <div class="mb-3">
+            <label for="recipe">Recipe:</label>
+            <select id="recipe" class="form-control">
+                <option value="">Select Recipe</option>
+                @foreach($recipes as $recipe)
+                    <option value="{{ $recipe->id }}" data-cost="{{ $recipe->cost_price }}">{{ $recipe->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="quantity">Quantity Sold:</label>
+            <input type="number" id="quantity" class="form-control">
+        </div>
+        <button id="addButton" class="btn btn-primary">Add</button>
+    </section>
+    <section class="container -ml-3 -mr-3">
+        <button id="doneButton" class="btn btn-success" style="float: right; margin-top: 10px;">Done</button>
+    </section>
 </body>
-</html>

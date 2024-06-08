@@ -20,8 +20,9 @@
         <nav class="navbar">
             <h4>Ovenomics</h4>
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="">About</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li><a href="">User</a></li>
             </ul>
         </nav>
